@@ -1,6 +1,6 @@
 # defineReactive
 
-> dom 更新后执行
+> 响应式原理
 
 ## 官网介绍
 
