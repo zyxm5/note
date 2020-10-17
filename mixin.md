@@ -1,3 +1,14 @@
+# nextTick
+
+> mixin混入核心源码
+
+## 官网介绍
+
+> https://cn.vuejs.org/v2/api/#Vue-nextTick
+
+## 核心代码
+
+```js
 
 Vue.mixin = function(mixin){
     // mergeOptions,第三方库提供的一个合并对象的方法,类似与webpack的merge
@@ -58,3 +69,19 @@ const mixin = {
 
 mergeOptions(base, mixin);
 console.log(base);
+```
+
+## 完整源码
+
+```ts
+/* @flow */
+
+import { mergeOptions } from '../util/index'
+
+export function initMixin (Vue: GlobalAPI) {
+  Vue.mixin = function (mixin: Object) {
+    this.options = mergeOptions(this.options, mixin)
+    return this
+  }
+}
+```
