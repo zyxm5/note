@@ -87,6 +87,26 @@ function observeObject(obj) {
     }
 }
 
+function set(obj, key, val) {
+    if (Array.isArray(obj)) {
+        obj.splice(key, 0, val);
+    }else{
+        defineReactive(obj, key, val);
+    }
+    return val;
+}
+
+function del(obj, key){
+    if (Array.isArray(obj)) {
+        obj.splice(key, 1);
+        return;
+    }else if(!obj.hasOwnProperty(key)){
+        return;
+    }
+    delete obj[key];
+    render();
+}
+
 function render() {
     console.log('render');
 }
