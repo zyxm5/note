@@ -1,0 +1,86 @@
+<!--
+ * @Author: zyxm5
+ * @Date: 2020-10-16 16:07:36
+ * @LastEditors: zyxm5
+ * @LastEditTime: 2021-01-22 07:24:05
+ * @Description: file content
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{ arr[0] }}
+        <button @click="handleClick">test</button>
+    </div>
+    <script src="./index.js"></script>
+    <script>
+        window.Vue = Vue;
+        const mix = Vue.extend({
+            components: {
+                abc:{
+                    template: `<div>abc</div>`
+                }
+            }
+        })
+        const test1 = {
+            name: 'test1',
+            data() {
+                return {
+                    name: 'xm',
+                }
+            },
+            render(c, ctx) {
+                return c('div', {}, [
+                    c('test1', {})
+                ])
+            },
+        };
+        var vm = new Vue({
+            mixins: [mix],
+            components: {
+                bcd: {
+                    template: `<div>bcd</div>`
+                }
+            },
+            name: 'test',
+            el: '#app',
+            data: {
+                name: 'zy',
+                arr: [1,2,3]
+            },
+            methods: {
+                handleClick() {
+                    this.arr[0] = 3;
+                    const res = this.$nextTick(() => {
+                        console.log(1)
+                    })
+                    console.log(res)
+                },
+            },
+        })
+        window.vm = vm;
+        console.log(vm.$options);
+
+        function mergeHook(parent, child) {
+            const res = child ? parent ? parent.concat(child) : Array.isArray(child ? child : [child]) : parent;
+            const res2 = [];
+            for (let i = 0; i < res.length; i++) {
+                if (res2.indexOf(res[i]) === -1) {
+                    res2.push(res[i]);
+                }
+            }
+            console.log(res, res2)
+            return res2;
+        }
+        mergeHook([() => { }], () => { })
+    </script>
+</body>
+
+</html>
