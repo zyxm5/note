@@ -1,3 +1,10 @@
+<!--
+ * @Author: zyxm5
+ * @Date: 2020-10-17 14:30:15
+ * @LastEditors: zyxm5
+ * @LastEditTime: 2021-01-25 13:18:28
+ * @Description: use源码分析
+-->
 # nextTick
 
 > vue的扩展插件原理
@@ -11,6 +18,7 @@
 ```js
 function use(Vue){
     Vue.use = function(plugin){
+        // 查看缓存
         const installedPlugins = this.installedPlugins || []; 
         // 只安装一次
         if(installedPlugins.indexOf(plugin) > -1){

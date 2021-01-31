@@ -2,7 +2,7 @@
  * @Author: zyxm5
  * @Date: 2021-01-20 19:40:49
  * @LastEditors: zyxm5
- * @LastEditTime: 2021-01-20 19:46:45
+ * @LastEditTime: 2021-01-25 06:20:11
  * @Description: $off 源码解析
 -->
 
@@ -48,7 +48,7 @@ Vue.prototype.$off = function (
         vm._events[event] = null;
         return vm;
     }
-    // specific handler
+    // 指定 handler
     let cb;
     let i = cbs.length;
     while (i--) {

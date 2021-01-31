@@ -2,13 +2,13 @@
  * @Author: zyxm5
  * @Date: 2021-01-21 09:54:11
  * @LastEditors: zyxm5
- * @LastEditTime: 2021-01-22 06:36:30
- * @Description: mergeOptions源码分析
+ * @LastEditTime: 2021-01-25 13:57:52
+ * @Description: Vue.util.mergeOptions源码分析
 -->
 
-# mergeOptions
+# Vue.util.mergeOptions
 
-> 合并两个 Vue 选项，并返回一个新的选项
+> 合并两个 Vue 选项，并返回一个新的选项,谨慎使用
 
 # 官网介绍
 

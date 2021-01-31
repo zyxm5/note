@@ -1,6 +1,6 @@
-# defineReactive
+# Vue.util.defineReactive
 
-> 响应式原理
+> 响应式原理,谨慎使用
 
 ## 官网介绍
 

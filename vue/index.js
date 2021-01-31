@@ -4512,6 +4512,7 @@
     if (typeof tag === 'string') {
       var Ctor;
       ns = (context.$vnode && context.$vnode.ns) || config.getTagNamespace(tag);
+      console.log(ns);
       if (config.isReservedTag(tag)) {
         // platform built-in elements
         vnode = new VNode(
